@@ -1,9 +1,10 @@
-ARG APP_BASE_HREF
-ENV APP_BASE_HREF="${APP_BASE_HREF}"
+FROM node:18
 
+# Set the working directory inside the container
 WORKDIR /app
 
-# Build image: Add any logic that you don't want to appear in the final container here
+# Copy package.json and package-lock.json
+COPY package*.json ./
 
 # This will download and build all of our packages inside of the build image where
 # we have access to artifactory.
