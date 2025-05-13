@@ -1,0 +1,42 @@
+.remove{
+    color: red;
+    font-size: 20px;
+    cursor: pointer;
+}
+
+.mat-grid-list{
+    margin-top: 30px;
+}
+
+.color-display {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 5px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    background-color: #fff;
+    width: 100%;
+    box-sizing: border-box;
+  }
+  
+  .color-input {
+    border: none;
+    outline: none;
+    font-size: 14px;
+    width: 70%;
+    text-align: center;
+    color: #000;
+    background: transparent;
+    cursor: pointer;
+  }
+  
+  .color-picker {
+    border: none;
+    outline: none;
+    width: 30%;
+    height: 30px;
+    cursor: pointer;
+    padding: 0;
+    background: transparent;
+  }

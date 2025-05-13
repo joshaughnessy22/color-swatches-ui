@@ -1,34 +1,42 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { ErrorComponent } from '../error/error.component';
 import {MatGridListModule} from '@angular/material/grid-list';
 import {MatButtonModule} from '@angular/material/button';
-import { NgIf, NgFor } from '@angular/common';
+import { MatIconModule } from '@angular/material/icon';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { FormsModule } from '@angular/forms';
+import { NgFor } from '@angular/common';
+import {MatInputModule} from '@angular/material/input';
 
 @Component({
   selector: 'app-cards',
   imports: [ MatGridListModule,
     MatButtonModule,
     ErrorComponent,
-    NgIf, NgFor
+    NgFor,
+    MatIconModule,
+    MatFormFieldModule,
+    FormsModule,
+    MatInputModule
   ],
   templateUrl: './cards.component.html',
   styleUrl: './cards.component.css'
 })
 export class CardsComponent {
-
   colors = ['#FFFFFF', '#000000'];
   errorMessage = '';
   gridCols = 2;
-  gridRows = 1;
-  gridHeight = 200;
-  gridWidth = 200;
+  readonly gridRows: number = 1; // Fixed to 1 row
+  readonly  gridHeight: number = 300; //fixed to height
+  readonly gridWidth = 1230; //fixed width
+
+  @Input() newcolor: string = '';
+
+
 
   addGridItem() {
     if (this.colors.length < 11){
-      this.gridCols = Math.ceil(this.colors.length / 2);
-      this.gridRows = Math.ceil(this.colors.length / this.gridCols);
-      this.gridHeight = 200 * this.gridRows;
-      this.gridWidth = 200 * this.gridCols;
+      this.gridCols = this.colors.length + 1;
 
       this.errorMessage = '';
 
@@ -42,10 +50,7 @@ export class CardsComponent {
 
   removeGridItem(i: number){
     if(this.colors.length > 2){
-      this.gridCols = Math.ceil(this.colors.length / 2);
-      this.gridRows = Math.ceil(this.colors.length / this.gridCols);
-      this.gridHeight = 200 * this.gridRows;
-      this.gridWidth = 200 * this.gridCols;
+      this.gridCols = this.colors.length - 1;
 
       this.errorMessage = '';
 
@@ -63,6 +68,19 @@ export class CardsComponent {
       color += letters[Math.floor(Math.random() * 16)];
     }
     return color;
+  }
+
+  private isValidColor(color: string): boolean {
+    return /^#[0-9A-F]{6}$/i.test(color);
+  }
+
+  updateColor(index: number, newColor: string): void {
+    if (this.isValidColor(newColor)) {
+      this.colors[index] = newColor;
+      this.errorMessage = '';
+    } else {
+      this.errorMessage = 'Invalid color code';
+    }
   }
 
 
