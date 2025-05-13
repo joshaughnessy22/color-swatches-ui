@@ -1,1 +1,13 @@
-<p>cards works!</p>
+<mat-grid-list [cols]="gridCols" [rowHeight]="'200px'">
+    <mat-grid-tile *ngFor="let color of colors; let i = index" [style.background]="color">
+      <div class="tile-content">
+        <button mat-icon-button color="warn" (click)="removeGridItem(i)">X</button>
+      </div>
+    </mat-grid-tile>
+  </mat-grid-list>
+  
+  <div>
+    <button mat-raised-button color="primary" (click)="addGridItem()">Add Grid Item</button>
+  </div>
+  
+  <!-- <app-error [message]="errorMessage"></app-error> -->
