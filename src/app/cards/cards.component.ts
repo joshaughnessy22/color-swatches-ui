@@ -1,5 +1,5 @@
 import { Component, Input } from '@angular/core';
-import { ErrorComponent } from '../error/error.component';
+
 import {MatGridListModule} from '@angular/material/grid-list';
 import {MatButtonModule} from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
@@ -7,12 +7,13 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { FormsModule } from '@angular/forms';
 import { NgFor } from '@angular/common';
 import {MatInputModule} from '@angular/material/input';
+import { MatDialog } from '@angular/material/dialog';
+import { ErrorComponent } from '../error/error.component'; // Adjust the path as needed
 
 @Component({
   selector: 'app-cards',
   imports: [ MatGridListModule,
     MatButtonModule,
-    ErrorComponent,
     NgFor,
     MatIconModule,
     MatFormFieldModule,
@@ -23,6 +24,8 @@ import {MatInputModule} from '@angular/material/input';
   styleUrl: './cards.component.css'
 })
 export class CardsComponent {
+  constructor(private dialog: MatDialog) {} //for error message
+
   colors = ['#F3A5B6', '#8E9437']; //default colors pink and yellow
   errorMessage = '';
   gridCols = 2;
@@ -39,6 +42,7 @@ export class CardsComponent {
     }
     else {
       this.errorMessage = "You can only add 10 colors"; //send error message to error component
+      this.openErrorDialog();
     }
 
   }
@@ -51,6 +55,7 @@ export class CardsComponent {
     } 
     else {
       this.errorMessage = "You must have at least 2 colors";
+      this.openErrorDialog(); //send message to error component
     }
   }
 
@@ -73,7 +78,16 @@ export class CardsComponent {
       this.errorMessage = '';
     } else {
       this.errorMessage = 'Invalid color code'; //send error message
+      this.openErrorDialog();
     }
+  }
+
+  openErrorDialog() {
+    this.dialog.open(ErrorComponent, {
+      data: { message: this.errorMessage },
+      width: '300px',
+      height: '200px',
+    });
   }
 
 }

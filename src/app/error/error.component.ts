@@ -1,12 +1,17 @@
-import { Component, Input } from '@angular/core';
-import { MatDialogModule } from '@angular/material/dialog';
+import { Component, Inject } from '@angular/core';
+import { MAT_DIALOG_DATA, MatDialogModule} from '@angular/material/dialog';
+import {MatButtonModule} from '@angular/material/button';
 
 @Component({
   selector: 'app-error',
-  imports: [MatDialogModule],
+  imports: [MatDialogModule, MatButtonModule],
+  standalone: true,
   templateUrl: './error.component.html',
-  styleUrl: './error.component.css'
+  styleUrls: ['./error.component.css']
 })
 export class ErrorComponent {
-  @Input() message: string = '';
+  constructor(
+    @Inject(MAT_DIALOG_DATA) 
+    public data: { message: string }) 
+    {}
 }
