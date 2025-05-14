@@ -1,1 +1,38 @@
-<p>cards works!</p>
+<div class = "cards">
+  <mat-grid-list [cols]="gridCols" [rowHeight]="gridHeight">
+    <div>
+      <mat-grid-tile *ngFor="let color of colors; let i = index" [style.background]="color">
+        <div class="remove">
+          <button mat-icon-button color="warn" (click)="removeGridItem(i)">
+            <mat-icon class="removeicon">remove_circle</mat-icon>
+          </button>
+        </div>
+    
+        <div class="color-box">
+            <input
+              class="color-input"
+              [value]="color"
+              #textInput
+              (input)="updateColor(i, textInput.value)"
+            />
+            <input
+              type="color"
+              class="color-picker"
+              [value]="color"
+              #colorPicker
+              (input)="updateColor(i, colorPicker.value)"
+            />
+        </div>
+        
+      </mat-grid-tile>
+    </div>
+  </mat-grid-list>
+</div>
+
+
+<div class="add-button">
+  <button mat-icon-button (click)="addGridItem()">
+    <mat-icon>add</mat-icon>
+  </button>
+</div>
+

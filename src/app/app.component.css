@@ -1,0 +1,13 @@
+.main {
+    width: 100vw; /* Full width of the viewport */
+    height: 100vh; /* Full height of the viewport */
+    display: flex; /* Optional: Use flexbox for content alignment */
+    justify-content: center; 
+  }
+  
+  .contents {
+    width: 90%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+  }
