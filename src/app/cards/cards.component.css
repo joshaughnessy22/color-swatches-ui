@@ -1,11 +1,28 @@
-.remove{
-    color: red;
-    font-size: 20px;
-    cursor: pointer;
+/* Add this rule to outline every <div> element */
+div {
+  outline: 1px dashed orangered;
 }
 
-.mat-grid-list{
-    margin-top: 30px;
+.cards{
+  height: 100%;
+  width: 100%;
+  margin-top: 30px;
+}
+
+mat-grid-tile{
+  background-color: rgba(255, 255, 255, 0.8);
+  border-radius: 10px;
+}
+
+.remove{
+    position: absolute;
+    top: 5px;
+    left: 5px;
+}
+
+.removeicon{
+  background-color: rgba(255, 255, 255, 0.8);
+  border-radius: 50%;
 }
 
 .color-display {
@@ -13,20 +30,26 @@
     align-items: center;
     justify-content: space-between;
     padding: 5px;
-    border: 1px solid #ccc;
     border-radius: 4px;
-    background-color: #fff;
+    background-color: rgba(255, 255, 255, 0.8); /* White with 80% opacity */
     width: 100%;
     box-sizing: border-box;
   }
   
+  .color-box {
+    display: flex;
+    justify-content: center;
+    margin-top: auto;
+    margin-bottom: 30px;
+    width:45%;
+  }
+
   .color-input {
     border: none;
     outline: none;
     font-size: 14px;
-    width: 70%;
-    text-align: center;
-    color: #000;
+    width: 50%;
+    color: #282525;
     background: transparent;
     cursor: pointer;
   }
@@ -34,9 +57,19 @@
   .color-picker {
     border: none;
     outline: none;
-    width: 30%;
+    width: 40%;
     height: 30px;
     cursor: pointer;
     padding: 0;
     background: transparent;
   }
+
+  .add-button {
+    position: absolute;
+    top:330px;
+    left:50%;
+    transform: translate(-50%, -50%);
+    background-color: rgba(255, 255, 255, 0.8);
+    border-radius: 50%;
+  }
+
