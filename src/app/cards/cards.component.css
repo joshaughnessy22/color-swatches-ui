@@ -1,49 +1,49 @@
-/* Add this rule to outline every <div> element */
-div {
-  outline: 1px dashed orangered;
-}
 
+/* div rule used for formatting page */
+
+/* div {
+  outline: 1px dashed orangered;
+} */
+
+/* color cards formatting at top of page*/
 .cards{
   height: 100%;
   width: 100%;
   margin-top: 30px;
 }
 
-mat-grid-tile{
+/*format each individual card*/
+mat-grid-tile{ 
   background-color: rgba(255, 255, 255, 0.8);
-  border-radius: 10px;
+  border-radius: 10px; 
 }
 
+
+/* remove button formatting */
 .remove{
     position: absolute;
     top: 5px;
     left: 5px;
 }
-
 .removeicon{
   background-color: rgba(255, 255, 255, 0.8);
   border-radius: 50%;
 }
 
-.color-display {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 5px;
-    border-radius: 4px;
-    background-color: rgba(255, 255, 255, 0.8); /* White with 80% opacity */
-    width: 100%;
-    box-sizing: border-box;
-  }
-  
+
+  /* adjust and change color options */
   .color-box {
     display: flex;
-    justify-content: center;
+    align-items: center;
+    justify-content: space-between; 
     margin-top: auto;
-    margin-bottom: 30px;
-    width:45%;
+    margin-bottom: 30px; 
+    padding: 5px;
+    border-radius: 4px;
+    background-color: rgba(255, 255, 255, 0.8); 
+    width: 45%; 
+    max-width: 200px;
   }
-
   .color-input {
     border: none;
     outline: none;
@@ -53,7 +53,6 @@ mat-grid-tile{
     background: transparent;
     cursor: pointer;
   }
-  
   .color-picker {
     border: none;
     outline: none;
@@ -64,6 +63,7 @@ mat-grid-tile{
     background: transparent;
   }
 
+  /*add a new card button*/
   .add-button {
     position: absolute;
     top:330px;
@@ -72,4 +72,3 @@ mat-grid-tile{
     background-color: rgba(255, 255, 255, 0.8);
     border-radius: 50%;
   }
-

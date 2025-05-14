@@ -1,6 +1,6 @@
 <div class = "cards">
   <mat-grid-list [cols]="gridCols" [rowHeight]="gridHeight">
-    <div class ="onecard">
+    <div>
       <mat-grid-tile *ngFor="let color of colors; let i = index" [style.background]="color">
         <div class="remove">
           <button mat-icon-button color="warn" (click)="removeGridItem(i)">
@@ -9,7 +9,6 @@
         </div>
     
         <div class="color-box">
-          <div class="color-display">
             <input
               class="color-input"
               [value]="color"
@@ -23,7 +22,6 @@
               #colorPicker
               (input)="updateColor(i, colorPicker.value)"
             />
-          </div>
         </div>
         
       </mat-grid-tile>
