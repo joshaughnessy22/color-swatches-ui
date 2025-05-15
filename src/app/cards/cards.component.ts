@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 
 import {MatGridListModule} from '@angular/material/grid-list';
 import {MatButtonModule} from '@angular/material/button';
@@ -10,6 +10,9 @@ import {MatInputModule} from '@angular/material/input';
 import { MatDialog } from '@angular/material/dialog';
 import { ErrorComponent } from '../error/error.component'; // Adjust the path as needed
 
+import { ColorsComponent } from '../colors/colors.component';
+import { FontComponent } from '../font/font.component';
+
 @Component({
   selector: 'app-cards',
   imports: [ MatGridListModule,
@@ -18,12 +21,17 @@ import { ErrorComponent } from '../error/error.component'; // Adjust the path as
     MatIconModule,
     MatFormFieldModule,
     FormsModule,
-    MatInputModule
+    MatInputModule,
+    ColorsComponent,
+    FontComponent
   ],
   templateUrl: './cards.component.html',
   styleUrl: './cards.component.css'
 })
-export class CardsComponent {
+export class CardsComponent implements OnInit {
+  ngOnInit(): void {
+    this.updateColorsPairs(); //initialize the pairs array for the colors component
+  }
   constructor(private dialog: MatDialog) {} //for error message
 
   colors = ['#F3A5B6', '#8E9437']; //default colors pink and yellow
@@ -39,6 +47,7 @@ export class CardsComponent {
       this.gridCols = this.colors.length + 1; 
       this.errorMessage = ''; //reset error message
       this.colors.push(this.getRandomColor()); //add a random color card
+      this.updateColorsPairs();
     }
     else {
       this.errorMessage = "You can only add 10 colors"; //send error message to error component
@@ -52,6 +61,7 @@ export class CardsComponent {
       this.gridCols = this.colors.length - 1;
       this.errorMessage = '';
       this.colors.splice(i, 1); //remove the ith color card
+      this.updateColorsPairs(); //update the colors array for the child component
     } 
     else {
       this.errorMessage = "You must have at least 2 colors";
@@ -76,6 +86,7 @@ export class CardsComponent {
     if (this.isValidColor(newColor)) {
       this.colors[i] = newColor; //add new color to the ith card
       this.errorMessage = '';
+      this.updateColorsPairs(); //update the colors array for the child component
     } else {
       this.errorMessage = 'Invalid color code'; //send error message
       this.openErrorDialog();
@@ -88,6 +99,19 @@ export class CardsComponent {
       width: '300px',
       height: '200px',
     });
+  }
+
+  pairs: { color1: string; color2: string }[] = []; //define the pairs array
+  updateColorsPairs() {
+    console.log('Sending colors to ColorsComponent:', this.colors);
+    this.pairs = []; //reset pairs array
+
+    for (let i = 0; i < this.colors.length; i++) {
+      for (let j = i + 1; j < this.colors.length; j++) {
+        this.pairs.push({ color1: this.colors[i], color2: this.colors[j] });
+      }
+    }
+
   }
 
 }

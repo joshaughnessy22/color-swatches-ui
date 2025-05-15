@@ -1,1 +1,21 @@
-<p>colors works!</p>
+<div class="cards">
+  <mat-grid-list [cols]="3" [rowHeight]="'240px'">
+    <mat-grid-tile *ngFor="let pair of pairs; let i = index" 
+    [style.background]="'linear-gradient(to bottom, ' + pair.color1 + ' 50%, ' + pair.color2 + ' 50%)'">
+
+    <div class="contrast">
+        {{pair.contrast}}
+    </div>
+
+    <div class="hello-world">
+        <div class="color2">
+            <p [style.color]="pair.color2">Hello</p>
+          </div>
+          <div class="color1">
+            <p [style.color]="pair.color1">World</p>
+          </div>
+    </div>
+
+    </mat-grid-tile>
+  </mat-grid-list>
+</div>
