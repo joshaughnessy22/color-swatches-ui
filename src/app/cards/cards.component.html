@@ -37,7 +37,7 @@
 </div>
 
 <div class="child">
-  <app-font> </app-font>
-  <app-colors [pairs] = "pairs"></app-colors>
+  <app-font (fontChange)="onFontChange($event)"> </app-font>
+  <app-colors [pairs] = "pairs" [selectedFont]="selectedFont"></app-colors>
 </div>
 

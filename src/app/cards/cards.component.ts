@@ -31,14 +31,18 @@ import { FontComponent } from '../font/font.component';
 export class CardsComponent implements OnInit {
   ngOnInit(): void {
     this.updateColorsPairs(); //initialize the pairs array for the colors component
+    this.onFontChange(this.selectedFont); //initialize the font component
   }
   constructor(private dialog: MatDialog) {} //for error message
+  selectedFont: string = 'Arial, sans-serif';
 
   colors = ['#F3A5B6', '#8E9437']; //default colors pink and yellow
   errorMessage = '';
   gridCols = 2;
   readonly gridRows: number = 1; // Fixed to 1 row
   readonly  gridHeight: number = 300; //fixed height of 300px
+
+
 
   @Input() newcolor: string = '';
 
@@ -112,6 +116,10 @@ export class CardsComponent implements OnInit {
       }
     }
 
+  }
+
+  onFontChange(font: string) {
+    this.selectedFont = font; // Update the selected font
   }
 
 }

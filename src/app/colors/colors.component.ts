@@ -12,11 +12,15 @@ import { NgFor } from '@angular/common';
 })
 export class ColorsComponent {
   @Input() pairs: { color1: string; color2: string; contrast?: number }[] = [];
+  @Input() selectedFont: string = 'Arial, sans-serif'; // Default font
 
   ngOnChanges(changes: SimpleChanges): void {
     if (changes['pairs'] && changes['pairs'].currentValue) {
-      console.log('New pairs received:', this.pairs);
       this.orderByContrast();
+      console.log('New pairs received:', this.pairs);
+    }
+    if (changes['selectedFont'] && changes['selectedFont'].currentValue) {
+      console.log('New font received:', this.selectedFont);
     }
   }
 

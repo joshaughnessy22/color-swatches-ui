@@ -1,0 +1,37 @@
+/* div {
+    outline: 1px dashed orangered;
+  } */
+
+.container {
+  display: flex; 
+  justify-content: space-between; 
+  align-items: center;
+  width: 100%;
+}
+
+.left {
+
+  display: flex;
+  justify-content: center; 
+  align-items: center; 
+  height: 240px;
+  width: 30%;
+}
+
+.text {
+  font-size: 20px;
+  color: #282525;
+  margin: 0; 
+  text-align: center;
+  background-color: #e0e2ec;
+  padding: 30px;
+  border-radius: 10px;
+}
+
+.right {
+  display: flex;
+  justify-content: center; 
+  align-items: center; 
+  height: 240px;
+  width: 30%;
+}

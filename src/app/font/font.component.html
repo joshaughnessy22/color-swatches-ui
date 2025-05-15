@@ -1,1 +1,31 @@
-<p>font works!</p>
+
+<div class="container">
+    <div class="space"></div>
+
+    <div class="left">
+        <p class="text" [style.font-family]="selectedFont">
+            abcdefghijklmnopqrstuvwxyz <br>
+            ABCDEFGHIJKLMNOPQRSTUVWXYZ <br>
+            1234567890 <br>
+        </p>
+        </div>
+
+        <div class="space">
+            
+        </div>
+        
+        <div class="right">
+            <mat-form-field>
+                <mat-select [(value)]="selectedFont" (selectionChange)="onFontChange($event.value)">
+                    <div class="text">
+                        <mat-option *ngFor="let font of fonts" [value]="font.value">
+                            {{ font.name }}
+                        </mat-option>
+                    </div>
+                </mat-select>
+            </mat-form-field>
+        </div>
+        
+        <div class="space"></div>
+
+</div>
