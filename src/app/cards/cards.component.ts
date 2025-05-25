@@ -34,7 +34,7 @@ export class CardsComponent implements OnInit {
     this.onFontChange(this.selectedFont); //initialize the font component
   }
   constructor(private dialog: MatDialog) {} //for error message
-  selectedFont: string = 'Arial, sans-serif';
+  selectedFont = 'Arial, sans-serif';
 
   colors = ['#F3A5B6', '#8E9437']; //default colors pink and yellow
   errorMessage = '';
@@ -44,7 +44,7 @@ export class CardsComponent implements OnInit {
 
 
 
-  @Input() newcolor: string = '';
+  @Input() newcolor = '';
 
   addGridItem() {
     if (this.colors.length < 11){ //do not exceed 10 colors

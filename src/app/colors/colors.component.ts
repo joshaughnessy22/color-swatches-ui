@@ -10,9 +10,9 @@ import { NgFor } from '@angular/common';
   templateUrl: './colors.component.html',
   styleUrl: './colors.component.css'
 })
-export class ColorsComponent {
+export class ColorsComponent implements OnChanges {
   @Input() pairs: { color1: string; color2: string; contrast?: number }[] = [];
-  @Input() selectedFont: string = 'Arial, sans-serif'; // Default font
+  @Input() selectedFont = 'Arial, sans-serif'; // Default font
 
   ngOnChanges(changes: SimpleChanges): void {
     if (changes['pairs'] && changes['pairs'].currentValue) {

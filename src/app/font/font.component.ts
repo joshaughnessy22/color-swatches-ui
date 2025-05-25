@@ -13,7 +13,7 @@ import { NgFor} from '@angular/common';
 export class FontComponent {
   @Output() fontChange = new EventEmitter<string>(); // Emit font changes
 
-  selectedFont: string = 'Arial, sans-serif';
+  selectedFont = 'Arial, sans-serif';
 
   fonts = [
     { name: 'Arial', value: 'Arial, sans-serif' },
