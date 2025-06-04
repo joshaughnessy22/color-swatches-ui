@@ -1,12 +1,12 @@
 
 
 .cards {
-    height: 100%; /* Full height of the container */
-    width: 100%; /* Full width of the container */
+    height: 100%; 
+    width: 100%; 
     margin-top: 30px;
-    display: flex; /* Use flexbox for layout */
-    justify-content: center; /* Center horizontally */
-    align-items: center; /* Center vertically */
+    display: flex; 
+    justify-content: center;
+    align-items: center; 
   }
 
 .hello-world{
@@ -19,9 +19,9 @@
 }
 
 mat-grid-list {
-    width: 100%; /* Ensure the grid takes up the full width */
-    max-width: 100%; /* Optional: Limit the maximum width */
-    height: auto; /* Adjust height based on content */
+    width: 100%; 
+    max-width: 100%; 
+    height: auto;
     justify-content: center;
     min-width: 240px;
   }
